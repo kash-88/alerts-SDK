@@ -1,11 +1,14 @@
 {
-  "name": "@kash.88/alerts",
-  "version": "0.0.1",
+  "name": "@kash-88/alerts",
+  "version": "0.0.2",
   "description": "JavaScript client for DonationAlerts API",
   "keywords": [
     "DonationAlerts",
     "api"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "homepage": "https://github.com/kash-88/DonationAlerts#readme",
   "bugs": {
     "url": "https://github.com/kash-88/DonationAlerts/issues"
@@ -18,10 +21,19 @@
   "author": "kash.88",
   "type": "module",
   "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish:github": "npm publish",
+    "publish:npm": "npm publish --registry=https://registry.npmjs.org/",
+    "publish:npm-dev": "npm publish --registry=https://registry.npmjs.org/ --tag Dev"
   },
   "dependencies": {
     "axios": "^1.10.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.5.0"
   }
 }
