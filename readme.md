@@ -3,7 +3,7 @@ A convenient library for interacting with the DonationAlerts API!
 
 ## Installation
 ```bash
-$ npm i @kash.88/alerts
+$ npm i @kash-88/alerts
 ```
 
 ```py
