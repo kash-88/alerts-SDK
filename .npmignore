@@ -1,0 +1,7 @@
+package-lock.json
+.eslintcache
+.nyc_output
+.gitignore
+.DS_Store
+coverage 
+*.log

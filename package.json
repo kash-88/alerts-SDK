@@ -1,0 +1,27 @@
+{
+  "name": "@kash.88/alerts",
+  "version": "0.0.1",
+  "description": "JavaScript client for DonationAlerts API",
+  "keywords": [
+    "DonationAlerts",
+    "api"
+  ],
+  "homepage": "https://github.com/kash-88/DonationAlerts#readme",
+  "bugs": {
+    "url": "https://github.com/kash-88/DonationAlerts/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kash-88/DonationAlerts.git"
+  },
+  "license": "ISC",
+  "author": "kash.88",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.10.0"
+  }
+}
