@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "lib": ["ES2020"],
+    "outDir": "./dist",
+    "rootDir": "./",
+
+    "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "paths": {
+      "@ws/*": ["./src/ws/*"],
+      "@type": ["./src/types"],
+      "@utils": ["./src/utils"],
+      "@function/*": ["./src/func/*"],
+      "@kash-88/alerts": ["./src/index"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "ws/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "example",
+    "dist"
+  ]
+} 
