@@ -1,5 +1,5 @@
-import { validateDataObject } from '@utils';
-import { GetAuthorizeLinkData } from '@type';
+import { validateDataObject } from "@utils";
+import { GetAuthorizeLinkData } from "@type";
 
 /**
  * Generates an authorization link for the DonationAlerts API.
@@ -8,8 +8,8 @@ import { GetAuthorizeLinkData } from '@type';
  * import { getAuthorizeLink } from "@kash.88/alerts";
  * 
  * const authLink = getAuthorizeLink({
- *   client_id: '12345',
- *   scope: ['oauth-user-show']
+ *   client_id: "YOUR_CLIENT_ID",
+ *   scope: ["oauth-user-show"]
  * });
  * console.log(authLink);
  * 
@@ -20,13 +20,13 @@ import { GetAuthorizeLinkData } from '@type';
 
 export default function getAuthorizeLink(data: GetAuthorizeLinkData): string {
     try {
-        validateDataObject(data, ['client_id', 'scope']);
+        validateDataObject(data, ["client_id", "scope"]);
 
         if (!Array.isArray(data.scope)) {
-            throw new Error('You must provide "scope" as an array in the data object.');
+            throw new Error("You must provide \"scope\" as an array in the data object.");
         }
         
-        return `https://www.donationalerts.com/oauth/authorize?client_id=${data.client_id}&response_type=code&scope=${data.scope.join('%20')}`;
+        return `https://www.donationalerts.com/oauth/authorize?client_id=${data.client_id}&response_type=code&scope=${data.scope.join("%20")}`;
     } catch (error: any) {
         throw new Error(error?.response?.data?.error_description || error?.message || error);
     }

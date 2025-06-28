@@ -6,7 +6,7 @@
  */
 
 function isObject(value: unknown): value is Record<string, unknown> {
-    return typeof value === 'object' && value !== null && !Array.isArray(value);
+    return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
 /**
@@ -20,7 +20,7 @@ function isObject(value: unknown): value is Record<string, unknown> {
 
 export function validateDataObject(data: unknown, requiredKeys: string[]): asserts data is Record<string, string | number | string[]> {
     if (!isObject(data)) {
-        throw new Error('You must provide data as an object.');
+        throw new Error("You must provide data as an object.");
     }
 
     for (const key of requiredKeys) {
@@ -30,14 +30,14 @@ export function validateDataObject(data: unknown, requiredKeys: string[]): asser
 
         const value = data[key];
 
-        if (key === 'scope') {
+        if (key === "scope") {
             if(!Array.isArray(value)) {
                 throw new Error(`"${key}" must be an array of strings.`);
             }
             continue;
         }
 
-        if (typeof value !== 'string' && typeof value !== 'number') {
+        if (typeof value !== "string" && typeof value !== "number") {
             throw new Error(`"${key}" must be a string or a number.`);
         }
     }
@@ -51,6 +51,6 @@ export function validateDataObject(data: unknown, requiredKeys: string[]): asser
 export function checkEnv(keys: string[]): void {
     const missing = keys.filter((key) => !process.env[key]);
     if (missing.length > 0) {
-        throw new Error(`Missing required environment variables: ${missing.join(', ')}`);
+        throw new Error(`Missing required environment variables: ${missing.join(", ")}`);
     }
 } 

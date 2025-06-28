@@ -1,7 +1,7 @@
-import axios from 'axios';
-import { WebSocket } from 'ws';
-import { EventEmitter } from 'events';
-import TypedEmitter from 'typed-emitter';
+import { getPrivateToken } from "@kash-88/alerts";
+import { WebSocket } from "ws";
+import { EventEmitter } from "events";
+import TypedEmitter from "typed-emitter";
 
 // --- Interfaces ---
 interface CentrifugeConfiguration {
@@ -20,23 +20,12 @@ interface CentrifugeMessage {
     params: Record<string, unknown>;
     id: number;
     method?: number;
-    result?: unknown;
-    push?: {
-        channel: string;
-        data: any;
-    };
-}
-
-interface CentrifugeSubscribeResponse {
-    channels: {
-        token: string;
-    }[];
 }
 
 // --- Configuration ---
 const configuration: CentrifugeConfiguration = {
     ws: {
-        url: 'wss://centrifugo.donationalerts.com/connection/websocket'
+        url: "wss://centrifugo.donationalerts.com/connection/websocket"
     }
 };
 
@@ -69,7 +58,7 @@ export default class CentrifugeClient extends (EventEmitter as new () => TypedEm
             
             return this.ws;
         } catch (error) {
-            console.error('[WS] Failed to create connection:', error);
+            console.error("[WS] Failed to create connection:", error);
             throw error;
         }
     }
@@ -84,27 +73,18 @@ export default class CentrifugeClient extends (EventEmitter as new () => TypedEm
         this.sendMessage(JSON.stringify(message));
     }
 
-    public async connectPrivateToken(channel: string, uuidv4_client_id: string): Promise<void> {
+    public async connectPrivateToken(channel: string, uuidv4_client_id: string, access_token: string = this.options.access_token): Promise<void> {
         try {
-            const response = await axios.post<CentrifugeSubscribeResponse>(
-                'https://www.donationalerts.com/api/v1/centrifuge/subscribe',
-                {
-                    channels: [channel],
-                    client: uuidv4_client_id
-                },
-                {
-                    headers: {
-                        'Authorization': `Bearer ${this.options.access_token}`
-                    }
-                }
-            );
-
-            if((response.data as any).success === false) throw new Error((response.data as any).message);
+            const token = await getPrivateToken({
+                channel,
+                uuidv4_client_id,
+                access_token
+            });
 
             const subscribeMessage: CentrifugeMessage = {
                 params: {
                     channel: channel,
-                    token: response.data.channels[0].token
+                    token
                 },
                 method: 1,
                 id: 2

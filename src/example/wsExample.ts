@@ -1,9 +1,9 @@
-import 'dotenv/config';
+import "dotenv/config";
 
-import { getUser, getUserChannel, CentrifugeClient } from '@kash-88/alerts';
-import { checkEnv } from '@utils';
+import { getUser, getUserChannel, CentrifugeClient } from "@kash-88/alerts";
+import { checkEnv } from "@utils";
 
-checkEnv(['CLIENT_ID', 'ACCESS_TOKEN', 'SOCKET_CONNECTION_TOKEN']);
+checkEnv(["CLIENT_ID", "ACCESS_TOKEN", "SOCKET_CONNECTION_TOKEN"]);
 const access_token = process.env.ACCESS_TOKEN!;
 let isConnectToPrivate = false;
 
@@ -21,13 +21,13 @@ async function main() {
 
         const ws = client.createConnection();
 
-        ws.on('open', async () => {
-            console.log('WebSocket соединение открыто');
+        ws.on("open", async () => {
+            console.log("WebSocket соединение открыто");
             client.confirmConnection(socket_connection_token);
         });
 
-        ws.on('message', (message) => {
-            const srt = message.toString('utf8');
+        ws.on("message", (message) => {
+            const srt = message.toString("utf8");
             const json = JSON.parse(srt);
 
             if(json.id = 1 && !isConnectToPrivate) {
@@ -37,15 +37,15 @@ async function main() {
             console.log(srt);
         });
 
-        ws.on('close', () => {
-            console.log('WebSocket соединение закрыто');
+        ws.on("close", () => {
+            console.log("WebSocket соединение закрыто");
         });
 
-        ws.on('error', (err) => {
-            console.error('Ошибка WebSocket:', err);
+        ws.on("error", (err) => {
+            console.error("Ошибка WebSocket:", err);
         });
     } catch (error: any) {
-        console.error('Ошибка:', error.message);
+        console.error("Ошибка:", error.message);
     }
 }
 

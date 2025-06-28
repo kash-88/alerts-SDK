@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { User } from '@type';
+import axios from "axios";
+import { User } from "@type";
 
 /**
  * Fetches the profile information for the authenticated user.
@@ -10,12 +10,12 @@ import { User } from '@type';
  * // Get an access_token using getOauthToken or updateAccessToken
  * 
  * try {
- *   const accessToken = 'USER_ACCESS_TOKEN';
+ *   const accessToken = "USER_ACCESS_TOKEN";
  *   const user = await getUser(accessToken);
  * 
  *   console.log(user);
  * } catch (error) {
- *   console.error('Error fetching user:', error.response.data);
+ *   console.error("Error fetching user:", error.response.data);
  * }
  * 
  * @param {string} access_token - The access token for authentication.
@@ -26,10 +26,10 @@ import { User } from '@type';
 export default async function getUser(access_token: string): Promise<User> {
     try {
         if (!access_token) {
-            throw new Error('You must provide "access_token" as a non-empty string.');
+            throw new Error("You must provide \"access_token\" as a non-empty string.");
         }
 
-        const response = await axios.get<{ data: User }>('https://www.donationalerts.com/api/v1/user/oauth', {
+        const response = await axios.get<{ data: User }>("https://www.donationalerts.com/api/v1/user/oauth", {
             headers: {
                 Authorization: `Bearer ${access_token}`
             }

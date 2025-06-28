@@ -10,14 +10,14 @@ import { UpdateTokenData, OauthToken } from "@type";
  * 
  * try {
  *   const tokenData = await updateAccessToken({
- *     client_id: 'YOUR_CLIENT_ID',
- *     client_secret: 'YOUR_CLIENT_SECRET',
- *     refresh_token: 'USER_REFRESH_TOKEN'
+ *     client_id: "YOUR_CLIENT_ID",
+ *     client_secret: "YOUR_CLIENT_SECRET",
+ *     refresh_token: "USER_REFRESH_TOKEN"
  *   });
  * 
  *   console.log(tokenData.access_token);
  * } catch (error) {
- *   console.error('Error updating access token:', error.response.data);
+ *   console.error("Error updating access token:", error.response.data);
  * }
  * 
  * @param {UpdateTokenData} data - The data for the token refresh request.
@@ -27,10 +27,10 @@ import { UpdateTokenData, OauthToken } from "@type";
 
 export default async function updateAccessToken(data: UpdateTokenData): Promise<OauthToken> {
     try {
-        validateDataObject(data, ['client_id', 'client_secret', 'refresh_token']);
+        validateDataObject(data, ["client_id", "client_secret", "refresh_token"]);
 
-        const response = await axios.post<OauthToken>('https://www.donationalerts.com/oauth/token', {
-            grant_type: 'refresh_token',
+        const response = await axios.post<OauthToken>("https://www.donationalerts.com/oauth/token", {
+            grant_type: "refresh_token",
             client_id: data.client_id,
             client_secret: data.client_secret,
             refresh_token: data.refresh_token
