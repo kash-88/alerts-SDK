@@ -1,13 +1,9 @@
 # DonationAlerts API
-A convenient library for interacting with the DonationAlerts API!
+A convenient library for interacting with the DonationAlerts API! 
 
 ## Installation
 ```bash
-$ npm i @kash-88/alerts
-```
-
-```py
-# This version is not recommended for production! For testing new features only.
+$ npm install @kash-88/alerts
 ```
 
 ## All methods
@@ -15,6 +11,7 @@ $ npm i @kash-88/alerts
 ## (Sync) getAuthorizeLink
 * Generates an authorization link for DonationAlerts OAuth.
 * Param: `{ client_id: string, scope: string[] }`
+* Api page: https://www.donationalerts.com/apidoc#authorization__authorization_code__authorization_request
 * Endpoint: https://www.donationalerts.com/oauth/authorize
 * Example:
 ```js
@@ -22,7 +19,7 @@ import { getAuthorizeLink } from '@kash-88/alerts';
 
 const link = getAuthorizeLink({
   client_id: 'YOUR_CLIENT_ID',
-  scope: ['oauth-user-show'] // All list: https://www.donationalerts.com/apidoc#authorization__scopes
+  scope: ['oauth-user-show'] // https://www.donationalerts.com/apidoc#authorization__scopes
 });
 
 console.log(link);
@@ -32,7 +29,8 @@ console.log(link);
 
 ## (Async) getOauthToken
 * Exchanges authorization code for access_token and refresh_token.
-* Param: `{ client_id: string|number, client_secret: string, code: string }`
+* Param: `{ client_id: string, client_secret: string, code: string }`
+* Api page: https://www.donationalerts.com/apidoc#authorization__authorization_code__getting_access_token
 * Endpoint: https://www.donationalerts.com/oauth/token
 * Example:
 ```js
@@ -44,7 +42,7 @@ const tokenData = await getOauthToken({
   code: 'AUTHORIZATION_CODE'
 });
 
-console.log(tokenData.access_token);
+console.log(tokenData);
 ```
 
 ---
@@ -52,6 +50,7 @@ console.log(tokenData.access_token);
 ## (Async) updateAccessToken
 * Refreshes access_token using refresh_token.
 * Param: `{ client_id: string|number, client_secret: string, refresh_token: string }`
+* Api page: https://www.donationalerts.com/apidoc#authorization__authorization_code__refreshing_access_tokens
 * Endpoint: https://www.donationalerts.com/oauth/token
 * Example:
 ```js
@@ -71,6 +70,7 @@ console.log(tokenData.access_token);
 ## (Async) getUser
 * Fetches user profile information by access_token.
 * Param: `access_token: string`
+* Api page: https://www.donationalerts.com/apidoc#api_v1__users
 * Endpoint: https://www.donationalerts.com/api/v1/user/oauth
 * Example:
 ```js
