@@ -5,6 +5,12 @@ export interface OauthToken {
     refresh_token: string;
 }
 
+export interface GetPrivateToken {
+    channel: string;
+    uuidv4_client_id: string;
+    access_token: string;
+}
+
 export interface User {
     id: number;
     code: string;
