@@ -4,6 +4,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+*.lock
+*.yaml
 
 node_modules/
 jspm_packages/
