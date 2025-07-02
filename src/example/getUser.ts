@@ -1,7 +1,6 @@
-import "dotenv/config";
 import { getUser } from "@kash-88/alerts";
 
-const access_token = process.env.ACCESS_TOKEN!;
+const access_token = 'USER_ACCESS_TOKEN';
 
 (async () => {
     try {
