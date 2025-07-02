@@ -1,7 +1,7 @@
 {
   "name": "@kash-88/alerts",
-  "version": "1.1.0",
-  "description": "DonationAlerts API for Node.js",
+  "version": "1.2.0",
+  "description": "A lightweight library for easy integration with the DonationAlerts API: authorization, token management, and user info in a few lines.",
   "type": "module",
   "keywords": [
     "DonationAlerts",
