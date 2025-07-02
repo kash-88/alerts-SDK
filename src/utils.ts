@@ -42,15 +42,3 @@ export function validateDataObject(data: unknown, requiredKeys: string[]): asser
         }
     }
 }
-
-/**
- * Checks if required environment variables are present.
- * Throws an error with a clear message if any variable is missing.
- * @param {string[]} keys - List of required environment variable names.
- */
-export function checkEnv(keys: string[]): void {
-    const missing = keys.filter((key) => !process.env[key]);
-    if (missing.length > 0) {
-        throw new Error(`Missing required environment variables: ${missing.join(", ")}`);
-    }
-} 

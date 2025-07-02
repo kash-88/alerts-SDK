@@ -1,9 +1,7 @@
 import "dotenv/config";
 
 import { getUser, getUserChannel, CentrifugeClient } from "@kash-88/alerts";
-import { checkEnv } from "@utils";
 
-checkEnv(["CLIENT_ID", "ACCESS_TOKEN", "SOCKET_CONNECTION_TOKEN"]);
 const access_token = process.env.ACCESS_TOKEN!;
 let isConnectToPrivate = false;
 

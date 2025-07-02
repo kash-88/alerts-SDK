@@ -1,11 +1,7 @@
-import "dotenv/config";
 import { getAuthorizeLink } from "@kash-88/alerts";
-import { checkEnv } from "@utils";
 
-checkEnv(["CLIENT_ID", "SCOPE"]);
-
-const client_id = process.env.CLIENT_ID!;
-const scope = process.env.SCOPE ? process.env.SCOPE.split(",") : ["oauth-user-show"];
+const client_id = 'YOUR_CLIENT_ID'; // Get on https://www.donationalerts.com/application/clients
+const scope = ["oauth-user-show"];
 
 try {
     const link = getAuthorizeLink({ client_id, scope });

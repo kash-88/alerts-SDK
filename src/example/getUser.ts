@@ -1,8 +1,5 @@
 import "dotenv/config";
 import { getUser } from "@kash-88/alerts";
-import { checkEnv } from "@utils";
-
-checkEnv(["ACCESS_TOKEN"]);
 
 const access_token = process.env.ACCESS_TOKEN!;
 

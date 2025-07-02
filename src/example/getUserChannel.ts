@@ -1,13 +1,9 @@
-import "dotenv/config";
 import { getUserChannel } from "@kash-88/alerts";
-import { checkEnv } from "@utils";
 
-checkEnv(["CLIENT_ID"]);
-
-const id = process.env.CLIENT_ID!;
+const user_id = 'USER_ID';
 
 try {
-    const channel = getUserChannel(id);
+    const channel = getUserChannel(user_id);
     console.log("User channel:", channel);
 } catch (error: any) {
     console.error("Error:", error.message);
