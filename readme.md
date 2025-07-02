@@ -1,5 +1,13 @@
+<div align="center">
+
 # DonationAlerts API
 A convenient library for interacting with the DonationAlerts API! 
+
+[![npm version](https://img.shields.io/npm/v/@kash-88/alerts.svg?style=flat-square)](https://www.npmjs.com/package/@kash-88/alerts/v/latest)
+[![npm downloads](https://img.shields.io/npm/dm/@kash-88/alerts.svg?style=flat-square)](https://www.npmjs.com/package/@kash-88/alerts/v/latests)
+[![install size](https://img.shields.io/badge/dynamic/json?url=https://packagephobia.com/v2/api.json?p=@kash-88/alerts&query=$.install.pretty&label=install%20size&style=flat-square)](https://www.npmjs.com/package/@kash-88/alerts/v/latest)
+
+</div>
 
 ## Installation
 ```bash
