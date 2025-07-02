@@ -6,6 +6,14 @@
     "lib": ["ES2020"],
     "outDir": "./dist",
     "rootDir": "./",
+    "baseUrl": ".",
+    "paths": {
+      "@ws/*": ["./src/ws/*"],
+      "@type": ["./src/types.js"],
+      "@utils": ["./src/utils.js"],
+      "@function/*": ["./src/func/*"],
+      "@kash-88/alerts": ["./src/index.js"]
+    },
 
     "strict": true,
     "noImplicitAny": true,
@@ -13,17 +21,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
-    "paths": {
-      "@ws/*": ["./src/ws/*"],
-      "@type": ["./src/types"],
-      "@utils": ["./src/utils"],
-      "@function/*": ["./src/func/*"],
-      "@kash-88/alerts": ["./src/index"]
-    }
   },
   "include": [
-    "src/**/*",
-    "ws/**/*"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules",

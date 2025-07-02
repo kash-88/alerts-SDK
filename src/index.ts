@@ -1,10 +1,10 @@
-import getAuthorizeLink from "@function/getAuthorizeLink";
-import getOauthToken from "@function/getOauthToken";
-import getUser from "@function/getUser";
-import updateAccessToken from "@function/updateAccessToken";
-import getUserChannel from "@function/getUserChannel";
-import { getPrivateToken } from "@function/getPrivateToken";
-import CentrifugeClient from "@ws/CentrifugeClient";
+import getAuthorizeLink from "@function/getAuthorizeLink.js";
+import getOauthToken from "@function/getOauthToken.js";
+import getUser from "@function/getUser.js";
+import updateAccessToken from "@function/updateAccessToken.js";
+import getUserChannel from "@function/getUserChannel.js";
+import { getPrivateToken } from "@function/getPrivateToken.js";
+import CentrifugeClient from "@ws/CentrifugeClient.js";
 
 export * from "@type";
 
