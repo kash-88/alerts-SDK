@@ -9,7 +9,7 @@ A lightweight library for easy integration with the DonationAlerts API: authoriz
 
 </div>
 
-Available in: [RU](https://github.com/kash-88/alerts-SDC/readme-ru.md), **EN**
+Available in: [RU](https://github.com/kash-88/alerts-SDK/blob/main/readme-ru.md), **EN**
 
 ## Installation
 Using npm:

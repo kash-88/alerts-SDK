@@ -9,7 +9,7 @@
 
 </div>
 
-Доступно на: **RU**, [EN](https://github.com/kash-88/alerts-SDC/readme.md)
+Доступно на: **RU**, [EN](https://github.com/kash-88/alerts-SDK/blob/main/readme.md)
 
 ## Установка
 Использование npm:
